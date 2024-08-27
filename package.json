@@ -25,7 +25,8 @@
   "contributors": [],
   "scripts": {
     "dev": "nodemon express.js",
-    "test": ""
+    "test": "",
+    "start": "node express.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
