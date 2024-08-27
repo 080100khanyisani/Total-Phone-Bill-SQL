@@ -13,7 +13,7 @@ document.addEventListener('alpine:init', () => {
 
         async fetchPricePlans() {
             try {
-                const response = await fetch('http://localhost:4011/api/price_plans');
+                const response = await fetch('/api/price_plans');
                 const data = await response.json();
                 console.log('Fetched price plans:', data.result);
                 this.pricePlans = data.result;
@@ -24,7 +24,7 @@ document.addEventListener('alpine:init', () => {
 
         async createPricePlan() {
             try {
-                await fetch('http://localhost:4011/api/price_plan/create', {
+                await fetch('/api/price_plan/create', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(this.newPlan)
@@ -38,7 +38,7 @@ document.addEventListener('alpine:init', () => {
 
         async updatePricePlan(plan) {
             try {
-                await fetch('http://localhost:4011/api/price_plan/update', {
+                await fetch('/api/price_plan/update', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(plan)
@@ -51,7 +51,7 @@ document.addEventListener('alpine:init', () => {
 
         async deletePricePlan(id) {
             try {
-                await fetch('http://localhost:4011/api/price_plan/delete', {
+                await fetch('/api/price_plan/delete', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ id })
@@ -64,7 +64,7 @@ document.addEventListener('alpine:init', () => {
 
         async calculatePhoneBill() {
             try {
-                const response = await fetch('http://localhost:4011/api/phonebill/', {
+                const response = await fetch('/api/phonebill/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ price_plan: this.billPlan, actions: this.actions })
