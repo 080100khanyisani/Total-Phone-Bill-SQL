@@ -1,14 +1,21 @@
-export function totalPhoneBill(logs) {
-	var logArray = logs.split(", ");
-  	var count_sms = 0;
-  	var count_calls = 0;
-  	for(let i = 0; i < logArray.length; i++) {
-    	if(logArray[i] === "call") {
-        	count_calls++;
-        } else if(logArray[i] === "sms") {
-        	count_sms++;
+export function totalPhoneBill(actions, callCost, smsCost) {
+    let total = 0;
+
+    // Split the actions string into an array of actions
+    const actionList = actions.split(',');
+
+    // Iterate through each action
+    for (const action of actionList) {
+        const trimmedAction = action.trim().toLowerCase();
+
+        // Add the appropriate cost based on the action type
+        if (trimmedAction === 'call') {
+            total += callCost;
+        } else if (trimmedAction === 'sms') {
+            total += smsCost;
         }
     }
-  	var phone_bill = (count_sms * 0.65) + (count_calls * 2.65);
-  	return "R" + phone_bill.toFixed(2);
+
+    // Return the total cost
+    return total;
 }

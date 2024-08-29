@@ -56,9 +56,11 @@ app.post('/api/phonebill/', async function(req, res) {
     if (!plan) {
         return res.status(404).json({ error: 'Price plan not found' });
     }
+    // Use the call_price and sms_price from the fetched plan
     const bill = totalPhoneBill(actions, plan.call_price, plan.sms_price);
     res.json({ totalphonebill: bill });
 });
+
 
 const PORT = process.env.PORT || 4011;
 
