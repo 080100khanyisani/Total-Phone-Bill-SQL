@@ -5,7 +5,7 @@ document.addEventListener('alpine:init', () => {
         billPlan: '',
         actions: '',
         totalPhoneBill: 0,
-        showAllPlans: true,
+        showAllPlans: false,
 
         init() {
             this.fetchPricePlans();
